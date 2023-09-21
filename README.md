@@ -11,8 +11,6 @@ O objetivo principal deste gerenciador é fornecer uma ferramenta útil de lembr
 
 * Git instalado para clonar o repositório, e após clonar ir ao diretório raiz, pelo terminal.
 
-* Seguir os paços listados a seguir
-
 ## Como Utilizar
 
 Para utilizar esta API, siga os passos abaixo:
