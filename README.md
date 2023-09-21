@@ -29,6 +29,8 @@ docker-compose up
 Abrir um terminal no diretório raiz do projeto e executar:
 ```shell
 pip install -r requirements.txt
+```
+```shell
 flask run --host 0.0.0.0 --port 5000
 ```
 
