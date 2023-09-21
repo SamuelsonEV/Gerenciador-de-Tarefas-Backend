@@ -71,27 +71,27 @@ Para obter a documentação completa desta API no estilo Swagger, acesse:
 
 - [GET] `/tarefa`
 
-  Retorna informações de uma tarefa com base no seu título.
+  Retorna uma tarefa com base no seu Id.
 
 - [DELETE] `/tarefa`
 
-  Remove uma tarefa com base no seu título.
-
-- [GET] `/tarefas`
-
-  Retorna uma listagem de todas as tarefas cadastradas.
-
-- [DELETE] `/tarefa_id`
-
   Remove uma tarefa com base no seu Id.
 
-- [GET] `/tarefa_id`
+- [GET] `/tarefa/titulo`
 
-  Retorna uma tarefa com base no seu Id.
+  Retorna informações de uma tarefa com base no seu título.
 
-- [GET] `/tarefa_id_concluida`
+- [DELETE] `/tarefa/titulo`
+
+  Remove uma tarefa com base no seu título.
+
+- [PUT] `/tarefa/concluida`
 
   Modifica o campo que representa a conclusão de uma tarefa com Id específico.
+
+- [GET] `/tarefa/todas`
+
+  Retorna uma listagem de todas as tarefas cadastradas.
 
 
 ## Notas de Versão

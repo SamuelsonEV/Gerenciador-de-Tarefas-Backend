@@ -3,9 +3,9 @@ import requests
 api_url = 'http://localhost:5000'
 
 nomes_de_tarefas = [
-    "Task 1",
-    "Task 2",
-    "Task 3",
+    "Criar Back-end",
+    "Criar Front-end",
+    "Fazer video Apresentação",
 ]
 
 for titulo_tarefa in nomes_de_tarefas:

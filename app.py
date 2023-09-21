@@ -29,7 +29,7 @@ def home():
 @app.post('/tarefa', tags=[tarefa_tag],
           responses={"200": TarefaViewSchema, "409": ErrorSchema, "400": ErrorSchema})
 def add_tarefa(form: TarefaSchema):
-    """Adiciona um novo Tarefa à base de dados
+    """Adiciona uma nova Tarefa à base de dados
 
     Retorna uma representação das tarefas cadastradas.
     """
@@ -63,7 +63,7 @@ def add_tarefa(form: TarefaSchema):
         return {"mensagem": error_msg}, 400
 
 
-@app.get('/tarefas', tags=[tarefa_tag],
+@app.get('/tarefa/todas', tags=[tarefa_tag],
          responses={"200": ListagemTarefasSchema, "404": ErrorSchema})
 def get_tarefas():
     """Faz a busca por todos os Tarefas cadastrados.
@@ -82,7 +82,7 @@ def get_tarefas():
         print(tarefas)
         return apresenta_tarefas(tarefas), 200
 
-@app.get('/tarefa', tags=[tarefa_tag],
+@app.get('/tarefa/titulo', tags=[tarefa_tag],
          responses={"200": TarefaViewSchema, "404": ErrorSchema})
 def get_tarefa(query: TarefaBuscaSchema):
     """Faz a busca por um Tarefa a partir do nome da tarefa
@@ -106,7 +106,7 @@ def get_tarefa(query: TarefaBuscaSchema):
         logger.debug(f"Tarefa encontrada: '{task.titulo}'")
         return apresenta_tarefa(task), 200
 
-@app.delete('/tarefa', tags=[tarefa_tag],
+@app.delete('/tarefa/titulo', tags=[tarefa_tag],
             responses={"200": TarefaDelSchema, "404": ErrorSchema})
 def del_tarefa(query: TarefaBuscaSchema):
     """Deleta um Tarefa a partir do nome da tarefa informada.
@@ -131,7 +131,7 @@ def del_tarefa(query: TarefaBuscaSchema):
         return {"mensagem": error_msg}, 404
 
 
-@app.delete('/tarefa_id', tags=[tarefa_tag],
+@app.delete('/tarefa', tags=[tarefa_tag],
             responses={"200": TarefaDelIdSchema, "404": ErrorSchema})
 def del_tarefa_id(query: TarefaIdSchema):
     """Deleta um Tarefa a partir do id da tarefa informada.
@@ -155,7 +155,7 @@ def del_tarefa_id(query: TarefaIdSchema):
         logger.warning(f"Erro ao deletar tarefa #'{tarefa_id}', {error_msg}")
         return {"mensagem": error_msg}, 404
 
-@app.get('/tarefa_id', tags=[tarefa_tag],
+@app.get('/tarefa', tags=[tarefa_tag],
             responses={"200": TarefaViewSchema, "404": ErrorSchema})
 def get_tarefa_id(query: TarefaIdSchema):
     """Faz a busca por um Tarefa a partir do ID da tarefa
@@ -178,9 +178,9 @@ def get_tarefa_id(query: TarefaIdSchema):
         logger.debug(f"Tarefa encontrada: '{task.titulo}'")
         return apresenta_tarefa(task), 200
 
-@app.put('/tarefa_id_concluida', tags=[tarefa_tag],
+@app.put('/tarefa/concluida', tags=[tarefa_tag],
             responses={"200": TarefaViewSchema, "404": ErrorSchema})
-def put_tarefa_id_concluida(query: TarefaIdSchema):
+def put_tarefa_concluida(query: TarefaIdSchema):
     """Marca uma Tarefa como concluída ou não a partir do id da tarefa informada.
 
     Retorna uma mensagem de confirmação da modificação.
